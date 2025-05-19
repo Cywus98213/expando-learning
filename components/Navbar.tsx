@@ -4,10 +4,9 @@ import React from "react";
 const Navbar = () => {
   return (
     <header className="border-b">
-      <nav className="font-bold max-w-[1440px] mx-auto p-5">
+      <nav className="font-bold container flex gap-5 font-">
         <Link href="/">Home</Link>
-        <Link href="/">About</Link>
-        <Link href="/">Home</Link>
+        <Link href="/posts">Posts</Link>
       </nav>
     </header>
   );

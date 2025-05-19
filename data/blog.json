@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of AI: What’s Next?",
+    "author": "Yui",
+    "content": "Exploring how artificial intelligence is shaping the world and what innovations are on the horizon...",
+    "publishedDate": "2025-05-19",
+    "tags": ["AI", "Technology", "Future"]
+  },
+  {
+    "id": 2,
+    "title": "Mastering Remote Work: Productivity Hacks",
+    "author": "Alex",
+    "content": "Tips and tricks to stay productive while working from home, including time management techniques...",
+    "publishedDate": "2025-05-10",
+    "tags": ["Work", "Productivity", "Remote"]
+  },
+  {
+    "id": 3,
+    "title": "The Best Travel Destinations for 2025",
+    "author": "Sam",
+    "content": "A curated list of stunning places you must visit in 2025, from breathtaking beaches to hidden gems...",
+    "publishedDate": "2025-04-28",
+    "tags": ["Travel", "Adventure", "Destinations"]
+  }
+]
