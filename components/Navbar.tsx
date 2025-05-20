@@ -6,7 +6,7 @@ const Navbar = () => {
     <header className="border-b">
       <nav className="font-bold container flex gap-5 font-">
         <Link href="/">Home</Link>
-        <Link href="/posts">Posts</Link>
+        <Link href="/blogs">Blogs</Link>
       </nav>
     </header>
   );

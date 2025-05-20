@@ -1,13 +1,16 @@
-import Navbar from '@/components/Navbar'
-import React, { ReactNode } from 'react'
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import React, { ReactNode } from "react";
 
-const Layout = ({children} : {children: ReactNode}) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
-        <Navbar />
-        {children}
-    </div>
-  )
-}
+    <div className="flex flex-col">
+      <Navbar />
+      <div className="min-h-screen">{children}</div>
 
-export default Layout
+      <Footer />
+    </div>
+  );
+};
+
+export default Layout;
