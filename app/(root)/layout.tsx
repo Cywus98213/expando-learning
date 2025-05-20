@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -8,6 +9,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <div className="min-h-screen flex items-center justify-center">
         {children}
       </div>
+      <Footer />
     </div>
   );
 };
