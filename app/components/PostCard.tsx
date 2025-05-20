@@ -12,6 +12,14 @@ const PostCard = ({
   return (
     <article className="flex flex-col w-full rounded-xl p-4 border border-gray-400 aspect-[4/3] gap-2">
       <h3 className="font-bold text-2xl">{title}</h3>
+      <div className="flex gap-3">
+        {tags.map((t, index) => (
+          <span className="text-xs" key={index}>
+            {t}
+          </span>
+        ))}
+      </div>
+
       <div className="flex items-center justify-between">
         <p className="text-xs">Author: {author}</p>
         <p className="text-xs">{publishedDate}</p>
