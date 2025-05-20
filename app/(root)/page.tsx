@@ -1,9 +1,13 @@
-import React from 'react'
+"use client";
+import React from "react";
+import Counter from "../components/counter";
 
 const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div className="">
+      <Counter />
+    </div>
+  );
+};
 
-export default page
+export default page;
