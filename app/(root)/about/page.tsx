@@ -1,9 +1,22 @@
-import React from 'react'
+"use client";
+import { useRouter } from "next/navigation";
+import React from "react";
 
-const page = () => {
+const Page = () => {
+  const router = useRouter();
   return (
-    <div>About</div>
-  )
-}
+    <div>
+      <div className="text-3xl">About</div>
+      <div className="flex items-center justify-center">
+        <button
+          onClick={() => router.back()}
+          className="border border-gray-300 rounded-md px-2 py-1"
+        >
+          Go Back
+        </button>
+      </div>
+    </div>
+  );
+};
 
-export default page
+export default Page;
