@@ -44,6 +44,10 @@ body {
 
 
 @layer components {
+  .container {
+    @apply max-w-[1440px] mx-auto py-3
+  }
+
   .Button {
     @apply w-7 h-7 rounded-md bg-black text-white border
   }
