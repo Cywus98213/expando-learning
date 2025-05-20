@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Next.js: The Future of Web Development",
+    "author": "Yui",
+    "content": "Next.js makes React development faster and more efficient. Learn how to leverage its power...",
+    "publishedDate": "2025-05-20",
+    "tags": ["Next.js", "Web Development", "React"]
+  },
+  {
+    "id": 2,
+    "title": "Mastering TypeScript for Scalable Projects",
+    "author": "Alex",
+    "content": "TypeScript offers type safety and improves code maintainability. Discover why it’s worth learning...",
+    "publishedDate": "2025-05-15",
+    "tags": ["TypeScript", "Programming", "Development"]
+  },
+  {
+    "id": 3,
+    "title": "How AI is Revolutionizing Software Engineering",
+    "author": "Sam",
+    "content": "Artificial Intelligence is changing the way we write and optimize code. Explore the latest advancements...",
+    "publishedDate": "2025-04-30",
+    "tags": ["AI", "Software Engineering", "Tech"]
+  }
+]
