@@ -1,6 +1,7 @@
 import BlogTag from "@/components/BlogTag";
 import Header from "@/components/Header";
 import { getBlogById } from "@/libs/actions/blog";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -17,6 +18,17 @@ const page = async ({ params }: Params) => {
     <main className="container page">
       <header>
         <Header title={blog.title} subHeader={blog.author} />
+        <section className="mt-5 rounded-md">
+          <Image
+            src={blog.imageUrl}
+            alt="blog image"
+            layout="intrinsic"
+            width={500}
+            height={160}
+            className="rounded-md"
+          />
+        </section>
+
         <div className="flex justify-between mt-5">
           <div className="flex justify-center items-center gap-3">
             {blog.tags.map((tag, index) => (

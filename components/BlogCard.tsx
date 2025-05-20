@@ -42,7 +42,9 @@ const BlogCard = ({
               Author: {author}
             </p>
           </header>
-          <section className="mt-auto text-sm line-clamp-3 ">{content}</section>
+          <section className="mt-auto text-sm line-clamp-7 md:line-clamp-4">
+            {content}
+          </section>
         </div>
       </article>
     </Link>
