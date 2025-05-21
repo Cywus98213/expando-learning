@@ -7,8 +7,8 @@ const Page = async () => {
   const data: PostProps[] = JSON.parse(jsonData);
   return (
     <div className="flex flex-col gap-2 items-center justify-center">
-      <h1 className="text-4xl font-bold">Posts</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5 mt-5">
+      <h1 className="text-4xl font-bold my-5">Posts</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5">
         {data.map((post) => (
           <PostCard key={post.id} {...post} />
         ))}
