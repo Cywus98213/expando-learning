@@ -1,20 +1,19 @@
-"use client"
-import BlogCard from "@/components/BlogCard";
-import Header from "@/components/Header";
+"use client";
+import BlogCard from "@/app/components/BlogCard";
+import Header from "@/app/components/Header";
 import { dummyBlog } from "@/constant";
 import React, { useEffect, useState } from "react";
 
 const Page = () => {
   const [blogs, setBlogs] = useState<BlogCardProps[]>([]);
-  
+
   useEffect(() => {
     const fetchBlogData = async () => {
-      setBlogs(dummyBlog)
-    }
+      setBlogs(dummyBlog);
+    };
 
     fetchBlogData();
-  },[])
-
+  }, []);
 
   return (
     <div className="container pageContainer">

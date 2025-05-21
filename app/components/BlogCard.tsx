@@ -8,8 +8,6 @@ const BlogCard = ({
   title,
   author,
   content,
-  likes,
-  visiability,
   publishedDate,
   tags,
   imageUrl,
@@ -32,10 +30,15 @@ const BlogCard = ({
             <h3 className="font-bold text-3xl md:text-2xl mb-2 line-clamp-2">
               {title}
             </h3>
-            <div className="flex gap-2">
-              {tags.map((tag, index) => (
-                <BlogTag key={index} tag={tag} />
-              ))}
+            <div className="flex justify-between">
+              <div className="flex gap-2">
+                {tags.map((tag, index) => (
+                  <BlogTag key={index} tag={tag} />
+                ))}
+              </div>
+              <div className="border rounded-full px-2">
+                <span className="text-xs">{publishedDate}</span>
+              </div>
             </div>
 
             <p className="text-sm font-semibold text-gray-500">

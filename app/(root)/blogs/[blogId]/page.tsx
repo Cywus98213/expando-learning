@@ -1,5 +1,5 @@
-import BlogTag from "@/components/BlogTag";
-import Header from "@/components/Header";
+import BlogTag from "@/app/components/BlogTag";
+import Header from "@/app/components/Header";
 import { getBlogById } from "@/libs/actions/blog";
 import Image from "next/image";
 import { redirect } from "next/navigation";

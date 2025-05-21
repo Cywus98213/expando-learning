@@ -4,7 +4,7 @@ const page = () => {
   return (
     <div className="landing flex-center">
       <div>
-        <h1 className="text-7xl font-semibold">Welcome to Blog app</h1>
+        <h1 className="text-7xl font-semibold mx-3 text-center">Welcome to Blog app</h1>
       </div>
     </div>
   );

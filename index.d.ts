@@ -9,8 +9,6 @@ declare interface BlogCardProps{
   author: string;
   content: string;
   publishedDate: string;
-  visiability: string;
-  likes: number;
   imageUrl: string;
   tags: string[];
 }
