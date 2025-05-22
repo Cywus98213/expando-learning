@@ -25,7 +25,8 @@ import { useForm } from "react-hook-form";
 
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/client";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
+
 import { MdModeEditOutline } from "react-icons/md";
 
 const TaskEditForm = ({
@@ -65,7 +66,7 @@ const TaskEditForm = ({
     if (error) {
       toast.error(error.message);
     } else {
-      toast.success("Create task successfully!");
+      toast.success("Edit task successfully!");
       onEdit();
     }
   };

@@ -12,7 +12,8 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { MdDelete } from "react-icons/md";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
+
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/client";
 

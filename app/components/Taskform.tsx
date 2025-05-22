@@ -26,7 +26,8 @@ import { useForm } from "react-hook-form";
 
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/client";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
+
 
 const Taskform = ({ onCreate }: { onCreate: () => void }) => {
   const [isSubmitting, setisSubmitting] = useState(false);

@@ -3,10 +3,12 @@ import { Separator } from "@/components/ui/separator";
 import React, { useEffect, useState } from "react";
 import SharedHeader from "./SharedHeader";
 import { createClient } from "@/lib/supabase/client";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
+
 import TaskCard from "./TaskCard";
 import DataNotFound from "./DataNotFound";
 import Loading from "./Loading";
+import CurrentUsersAvatar from "./CurrentUsersAvatar";
 
 const Tasklist = () => {
   const supabase = createClient();
@@ -56,6 +58,17 @@ const Tasklist = () => {
         setTasksData((prev) => prev.filter((task) => task.id !== deleteTaskId));
       }
     );
+    channel.on(
+      "postgres_changes",
+      { event: "UPDATE", schema: "public", table: "task" },
+
+      (payload) => {
+        const updateTask = payload.new as TaskCardProps;
+        setTasksData((prev) =>
+          prev.map((task) => (task.id == updateTask.id ? updateTask : task))
+        );
+      }
+    );
 
     channel.subscribe((status) => {
       console.log("Current sub", status);
@@ -63,7 +76,8 @@ const Tasklist = () => {
   });
 
   return (
-    <div className="flex flex-col flex-1">
+    <div className="flex flex-col flex-1 gap-3">
+      <CurrentUsersAvatar />
       <SharedHeader
         mainHeader="Tasks Hub"
         subHeader="Here for all of your tasks that people created"
@@ -73,7 +87,7 @@ const Tasklist = () => {
       {loading ? (
         <Loading />
       ) : tasksData.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-5">
           {tasksData.map((task) => (
             <TaskCard
               key={task.id}

@@ -1,11 +1,10 @@
-import { CurrentUserAvatar } from "@/components/current-user-avatar";
-import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
-import Link from "next/link";
 import React from "react";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
+
 import LoginButton from "./LoginButton";
 import { LogoutButton } from "@/components/logout-button";
+import UserAvatar from "./UserAvatar";
 
 const Navbar = async () => {
   const supabase = await createClient();
@@ -22,9 +21,6 @@ const Navbar = async () => {
   return (
     <header className="border-b">
       <nav className="container flex justify-between">
-        <Button>
-          <Link href="/">Home</Link>
-        </Button>
         <div className="flex items-center justify-center text-xs ">
           Welcome back, {displayName}
         </div>
@@ -32,7 +28,7 @@ const Navbar = async () => {
           <LoginButton />
         ) : (
           <div className="flex gap-5">
-            <CurrentUserAvatar />
+            <UserAvatar />
             <LogoutButton />
           </div>
         )}

@@ -12,7 +12,7 @@ export default async function ProtectedPage() {
   }
 
   return (
-    <main className="flex flex-col container min-h-screen">
+    <main className="flex flex-col min-h-screen">
       <Tasklist />
     </main>
   );

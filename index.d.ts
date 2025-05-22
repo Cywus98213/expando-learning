@@ -27,3 +27,7 @@ declare interface EditTaskCardProps {
   title: string;
   description: string;
 }
+
+declare interface ChatRoomProps {
+  open: boolean;
+}
