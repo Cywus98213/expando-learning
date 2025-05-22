@@ -17,4 +17,13 @@ declare interface TaskCardProps {
   id: number;
   title: string;
   description: string;
+  user_id: string;
+  currentUserId: string | null;
+  creator: string;
+}
+
+declare interface EditTaskCardProps {
+  id: number;
+  title: string;
+  description: string;
 }

@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import {
   AlertDialog,
@@ -10,10 +11,10 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 import { MdDelete } from "react-icons/md";
-import { supabase } from "@/utils/superbase/client";
 import toast from "react-hot-toast";
+import { Button } from "@/components/ui/button";
+import { createClient } from "@/lib/supabase/client";
 
 const DeleteDialog = ({
   id,
@@ -23,6 +24,7 @@ const DeleteDialog = ({
   onDelete: () => void;
 }) => {
   const handleDelete = async () => {
+    const supabase = createClient();
     const { error } = await supabase.from("task").delete().eq("id", id);
 
     if (error) {
@@ -36,7 +38,7 @@ const DeleteDialog = ({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className="" variant="destructive">
+        <Button variant="destructive">
           <MdDelete />
         </Button>
       </AlertDialogTrigger>

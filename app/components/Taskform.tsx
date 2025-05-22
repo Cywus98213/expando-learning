@@ -25,10 +25,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { z } from "zod";
-import { supabase } from "@/utils/superbase/client";
+import { createClient } from "@/lib/supabase/client";
 import toast from "react-hot-toast";
 
 const Taskform = ({ onCreate }: { onCreate: () => void }) => {
+  const [isSubmitting, setisSubmitting] = useState(false);
   const [open, setOpen] = useState(false);
   const formSchema = z.object({
     title: z.string().min(2, {
@@ -48,16 +49,28 @@ const Taskform = ({ onCreate }: { onCreate: () => void }) => {
   });
 
   const onSubmit = async (data: formProps) => {
-    console.log("Form title:", data);
+    setisSubmitting(true);
+    const supabase = createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    const displayName = user?.user_metadata.displayName;
+    const user_id = user?.id;
+    console.log("User data:", user);
     setOpen(false);
-    const { error } = await supabase.from("task").insert(data).single();
+    const bundleData = { ...data, creator: displayName, user_id: user_id };
+    console.log(bundleData);
+
+    const { error } = await supabase.from("task").insert(bundleData).single();
 
     if (error) {
       toast.error(error.message);
     } else {
       toast.success("Create task successfully!");
+      setisSubmitting(false);
       onCreate();
     }
+    setisSubmitting(false);
   };
 
   return (
@@ -65,7 +78,6 @@ const Taskform = ({ onCreate }: { onCreate: () => void }) => {
       <DialogTrigger asChild>
         <Button variant="default">
           <FaPlus width={3} height={3} />
-          <span className="font-bold">Task</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] aspect-[4/3]">
@@ -110,7 +122,9 @@ const Taskform = ({ onCreate }: { onCreate: () => void }) => {
                 Reset
               </Button>
 
-              <Button type="submit">Submit</Button>
+              <Button type="submit" disabled={isSubmitting}>
+                Submit
+              </Button>
             </DialogFooter>
           </form>
         </Form>

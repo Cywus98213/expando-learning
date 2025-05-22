@@ -24,15 +24,16 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { z } from "zod";
-import { supabase } from "@/utils/superbase/client";
+import { createClient } from "@/lib/supabase/client";
 import toast from "react-hot-toast";
 import { MdModeEditOutline } from "react-icons/md";
 
 const TaskEditForm = ({
+  id,
   title,
   description,
   onEdit,
-}: formProps & { onEdit: () => void }) => {
+}: EditTaskCardProps & { onEdit: () => void }) => {
   const [open, setOpen] = useState(false);
   const formSchema = z.object({
     title: z.string().min(2, {
@@ -53,8 +54,13 @@ const TaskEditForm = ({
 
   const onSubmit = async (data: formProps) => {
     console.log("Form title:", data);
+    const supabase = createClient();
     setOpen(false);
-    const { error } = await supabase.from("task").update(data).single();
+    const { error } = await supabase
+      .from("task")
+      .update(data)
+      .eq("id", id)
+      .single();
 
     if (error) {
       toast.error(error.message);
@@ -66,15 +72,15 @@ const TaskEditForm = ({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        <Button className="" variant="outline">
+      <DialogTrigger asChild>
+        <Button variant="outline">
           <MdModeEditOutline />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] aspect-[4/3]">
         <DialogHeader>
           <DialogTitle>Edit task</DialogTitle>
-          <DialogDescription>edit your task in one-click.</DialogDescription>
+          <DialogDescription>Edit your task in one-click.</DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
